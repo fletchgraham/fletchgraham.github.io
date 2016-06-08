@@ -1,0 +1,178 @@
+@font-face {
+    font-family: mononoki;
+    src: url(/font/mononoki-Regular.ttf);
+}
+
+body {
+    font-family: mononoki, monaco;
+}
+
+.grand_container {
+    margin:auto;
+    max-width: 1080px;
+    min-width: 221px;
+}
+
+/* for some reason, the article has to be this tall or else the menu jumps around when you click from home page to other pages.  ¯\_(ツ)_/¯  */
+.article {
+    min-height: 1300px;
+    
+}
+
+img {
+    width: 100%
+}
+
+a {
+    color: black;
+}
+
+
+/* stuff regarding the menu >>>>> */
+
+.menu {
+    float:left;
+    position: fixed;
+    width: 300px;
+    overflow: hidden;
+}
+
+ul {padding-left: 20px;}
+
+li {
+    margin-top:2px;
+    list-style-type: circle;
+}
+
+.active {
+    list-style-type: disc;
+}
+
+
+/* 
+NOTES ON THE SHOW HIDE BUTTONS
+
+-the show hide buttons are rigged up with jquery
+-if the page is loaded while in desktop mode, they don't show up.
+-if the page is loaded while in tablet mode, the menu is collapsed and the show button is visible
+-if the page is sized up from tablet to desktop, the show and hide buttons are still visible; a weird feature but kinda cool
+
+*/
+.show {
+    display:none;
+    cursor: pointer;
+}
+.hide {
+    display:none;
+    cursor: pointer;
+}
+
+/* <<<<< stuff regarding the menu */
+
+
+/* stuff regarding the articles >>>>> */
+
+/* the gutter between the menu and the article is equal to the article's margin-left minus the width of the menu */
+
+.article {
+    margin-left: 350px;
+    max-width: 1080px;
+}
+
+.article img {
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+.footer {
+    display:none;
+    position: absolute;
+    bottom:100px;
+}
+
+/* <<<<< stuff regarding the articles */
+
+/********************************************************************
+
+
+MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+********************************************************************/
+
+
+/* this is for a landscape ipad or less */
+@media screen and (max-width: 1024px) {
+    
+    /* the menu gets a background, stretches accross top of the screen and gains the ability to be collapsed*/
+    .menu {
+        width:auto;
+        float:none;
+        position:fixed;
+        width: 100%;
+        height:72px;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+        background:white;
+    }
+    
+    ul {
+        float:left;
+        display:inline-block;
+        width:300px;
+    }
+    
+    /* this makes the article snug against the left of screen. and it needs the padding so that content is not lost behind the menu */
+    .article {
+        padding-top: 100px;
+        margin-left: 0px;
+    }
+    
+    /* shoots the show button to the right side, it needs the padding to defend against scroll bars */
+    .show {
+        text-align: right;
+        padding-right:20px;
+        display: block;
+    }
+    
+    /* same as .show */
+    .hide {
+        padding-right:20px;
+        text-align: right;
+        display: block;
+    }
+    
+    /* I don't know what to do with this guy yet so he is display none */
+    .footer {
+        position:relative;
+        display:none;
+    }
+    
+    /* we lose the description, for that sleek look */
+    #description {
+        display:none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
