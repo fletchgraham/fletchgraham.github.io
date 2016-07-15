@@ -140,6 +140,11 @@ NOTES ON THE SHOW HIDE BUTTONS
     height:300.5px;
 }
 
+#gig-posters-card {
+    width:300;
+    height:388px;
+}
+
 /* stuff regarding the articles >>>>> */
 
 /* the gutter between the menu and the article is equal to the article's margin-left minus the width of the menu */
@@ -191,7 +196,7 @@ MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         width:auto;
         float:none;
         position:fixed;
-        width: 96%;
+        margin-right:8px;
         height:72px;
     }
     

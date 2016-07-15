@@ -252,8 +252,8 @@ $( "#bike-build-btn" ).mouseenter(
     $('#bike-build-card').css('z-index', topZ+1);
   }
 );
-
-$( "#downloads-btn" ).mouseenter(
+    
+$( "#gig-posters-btn" ).mouseenter(
   function() {
         var topZ = 0;
     $('.grab').each(function(){
@@ -268,11 +268,9 @@ $( "#downloads-btn" ).mouseenter(
             topZ = menuZ;
         }
     });
-    $('#downloads-card').css('z-index', topZ+1);
+    $('#gig-posters-card').css('z-index', topZ+1);
   }
 );
-    
-
 
 /* this bit brings the clicked card to the front */
     
