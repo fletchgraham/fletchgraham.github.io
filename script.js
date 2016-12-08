@@ -101,6 +101,25 @@ these next functions are responsible for bringing the correct card to the top of
 
 */
     
+$( "#kunsthaus-bregenz-btn" ).mouseenter(
+  function() {
+        var topZ = 0;
+    $('.grab').each(function(){
+        var thisZ = parseInt($(this).css('z-index'), 10);
+        if (thisZ > topZ){
+            topZ = thisZ;
+        }
+    });
+    $('.menu').each(function(){
+        var menuZ = parseInt($(this).css('z-index'), 10);
+        if (menuZ > topZ){
+            topZ = menuZ;
+        }
+    });
+    $('#kunsthaus-bregenz-card').css('z-index', topZ+1);
+  }
+);
+    
 $( "#100-days-project-btn" ).mouseenter(
   function() {
         var topZ = 0;

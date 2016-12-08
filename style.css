@@ -145,6 +145,11 @@ NOTES ON THE SHOW HIDE BUTTONS
     height:388px;
 }
 
+#kunsthaus-bregenz-card {
+    width:314px;
+    height:300px;
+}
+
 /* stuff regarding the articles >>>>> */
 
 /* the gutter between the menu and the article is equal to the article's margin-left minus the width of the menu */
