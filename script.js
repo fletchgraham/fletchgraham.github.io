@@ -100,6 +100,24 @@ $('.daario-naharis').draggable();
 these next functions are responsible for bringing the correct card to the top of the pile when its name is moused over in the menu.
 
 */
+$( "#100-days-of-textures-btn" ).mouseenter(
+  function() {
+        var topZ = 0;
+    $('.grab').each(function(){
+        var thisZ = parseInt($(this).css('z-index'), 10);
+        if (thisZ > topZ){
+            topZ = thisZ;
+        }
+    });
+    $('.menu').each(function(){
+        var menuZ = parseInt($(this).css('z-index'), 10);
+        if (menuZ > topZ){
+            topZ = menuZ;
+        }
+    });
+    $('#100-days-of-textures-card').css('z-index', topZ+1);
+  }
+);
     
 $( "#kunsthaus-bregenz-btn" ).mouseenter(
   function() {
