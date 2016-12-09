@@ -40,7 +40,7 @@ a {
     z-index: 1001;
     padding:5px;
     background:white;
-    border: solid 2px black;
+    border: solid 3px black;
     float:left;
     position: fixed;
     width: 300px;
@@ -84,7 +84,7 @@ NOTES ON THE SHOW HIDE BUTTONS
     background:white;
     z-index: 1000;
     position: fixed;
-    border:2px solid black;
+    border:3px solid black;
     width:300px;
     height:300px;
     overflow: hidden;
@@ -93,6 +93,7 @@ NOTES ON THE SHOW HIDE BUTTONS
 /* the daario naharis class is the floaty grabby text boxes */
 
 #daario-naharis {
+    display: inline;
     background: white;
     height: auto;
     padding:5px;
