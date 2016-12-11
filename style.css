@@ -32,6 +32,16 @@ a {
     background-color:black;
 }
 
+.button:hover{
+    color:white;
+    background-color:black;
+    cursor:pointer;
+}
+
+.button:active{
+    color:white;
+    background-color:black;
+}
 
 /* stuff regarding the menu >>>>> */
 
@@ -194,8 +204,8 @@ MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ********************************************************************/
 
 
-/* this is for a landscape ipad or less */
-@media screen and (max-width: 1024px) {
+/* this is for a portrait ipad or less (landscape is 1024)*/
+@media screen and (max-width: 768px) {
     
     /* the menu gets a background, stretches accross top of the screen and gains the ability to be collapsed*/
     .menu {

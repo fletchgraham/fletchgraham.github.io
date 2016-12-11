@@ -28,6 +28,7 @@
   ga('send', 'pageview');
 
 </script>
+<script type="text/javascript" src="/instafeed.min.js"></script>
 </head>
 
 <body>
@@ -43,12 +44,43 @@
 
             
         <!-- PUT SHIT HERE VVVV-->
-            <p> 
+               <!-- <a target ="_blank" href = "https://www.instagram.com/explore/tags/100fletchtextures/"><img src="/2016-100-days-of-textures/link-to-instagram.jpg" /></a>-->
+                
+            <div id="instafeed"></div><div id='load-more' class="button" style="margin-bottom:60px">load more</div>
+            
+            <!--<script type="text/javascript">
+                var userFeed = new Instafeed({
+                  get: 'user',
+                  userId: '175922831',
+                  accessToken: '175922831.1677ed0.546df8aee27a4118a4be29d27ecdecb1',
+                    resolution: 'standard_resolution'
+                });
+                userFeed.run();
+            </script>-->
+            <script type="text/javascript">
+    var loadButton = document.getElementById('load-more');
+    var feed = new Instafeed({
+        // every time we load more, run this function
+                after: function() {
+                    // disable button if no more results to load
+                    if (!this.hasNext()) {
+                        loadButton.setAttribute('disabled', 'disabled');
+                    }
+                },
+                get: 'user',
+                userId: '175922831',
+                accessToken: '175922831.1677ed0.546df8aee27a4118a4be29d27ecdecb1',
+                resolution: 'standard_resolution',
+    });
 
-                <a target ="_blank" href = "https://www.instagram.com/explore/tags/100fletchtextures/"><img src="/2016-100-days-of-textures/link-to-instagram.jpg" /></a>
+    // bind the load more button
+    loadButton.addEventListener('click', function() {
+        feed.next();
+    });
 
-
-            </p>
+    // run our feed!
+    feed.run();
+</script>
         <!-- PUT SHIT HERE ^^^^-->
             
         </div>
