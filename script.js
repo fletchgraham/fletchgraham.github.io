@@ -1,10 +1,13 @@
 /* canvas draw function. genetic material from an ancient website of mine */
-window.onload = function(){
+
+window.onload = function () {
     
 var color = "#6900ff";
 var $canvas = $("canvas");
 //Select the first, only canvas element. Select the actual HTML element using the array syntax [index], get the 2d context.
 var context = $canvas[0].getContext("2d");
+  context.canvas.width  = window.innerWidth;
+  context.canvas.height = window.innerHeight;
 var lastEvent;
 
 //On mouse events on the canvas
@@ -14,7 +17,6 @@ $canvas.mouseover(function(e) {
 
 }).mousemove(function(e) {
         //Draw lines
-    
         context.beginPath();
         context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
         context.lineTo(e.offsetX, e.offsetY);
@@ -30,7 +32,6 @@ $canvas.mouseover(function(e) {
 
 }
 
-    
 /*
 
 NOTES ON THE DYNAMIC MENU
@@ -44,26 +45,78 @@ NOTES ON THE DYNAMIC MENU
 */
     
 $(document).ready(function(){
-    
-
-    //the 'hide' click
-        $('.hide').click(function(){
-        $('.show').show();
-        $('.hide').hide ();
-        $('#description').hide ();
-        $('.menu:not(#daario-naharis)').animate({height:'72px'}, 300);});
-    
-    //the 'show' click
-        $('.show').click(function(){
+$.show = function()
+    {
         $('.hide').show();
         $('.show').hide();
-        $('#description').show ();
-        $('.menu:not(#daario-naharis)').animate({height:$('.menu')[0].scrollHeight + 15}, 300);});
+        $('.collapse').show ();
+        $( '.menuDesk' ).css({
+        height: "auto",
+        });
+        $( '.menuMobile' ).css({
+        height: "auto",
+        });
+    }
+$.hide = function()
+    {
+        $('.show').show();
+        $('.hide').hide ();
+        /*$('.menuDesk').animate({height:'72px'});
+        $('.menuMobile').animate({height:'72px'});*/
+        $( '.menuDesk' ).css({
+        height: "auto",
+        });
+        $( '.menuMobile' ).css({
+        height: "auto",
+        });
+        $('.collapse').hide ();
+    }
+    
+if ($(window).width() < 768) {
+    $('.menuDesk').hide ();
+    $('.menuMobile').show ();
+    $('.collapse').hide ();
+}
+    
+if ($(window).width() > 768) {
+    $('.menuDesk').show ();
+    $('.menuMobile').hide ();
+}
+        
+$(window).resize(function(){
+    
+    $( '.menuDesk' ).css({
+        height: "auto",
+    });
+    $( '.menuMobile' ).css({
+        height: "auto",
+    });
+    
+    if ($(window).width() < 768) {
+    $('.menuDesk').hide ();
+    $('.menuMobile').show ();
+    $.hide();
+}
+    
+if ($(window).width() > 768) {
+    $('.menuDesk').show ();
+    $('.menuMobile').hide ();
+}
+});
+    
+    $('.hide').hide();
+
+    //the 'hide' click
+        $('.hide').click($.hide);
+    
+    //the 'show' click
+        $('.show').click($.show);
+        
 
     
     /* these guys actually give the drag functionality to the cards and the menu */
 $('.grab').draggable();
-$('.menu').draggable();
+$('.menuDesk').draggable();
 $('.daario-naharis').draggable();
     
 
@@ -74,7 +127,7 @@ $('.daario-naharis').draggable();
     $('.grab').each(function(){
     var grab_width = this.clientWidth;
     var grab_height = this.clientHeight;
-  var randPosX = Math.floor((((Math.random()+.5)/2)*(bodyWidth - grab_width)));
+  var randPosX = Math.floor((((Math.random()*2)/2)*(bodyWidth - grab_width)));
   var randPosY = Math.floor((((Math.random()+.5)/2)*(bodyHeight - grab_height)));
   
   $(this).css('left', randPosX);
