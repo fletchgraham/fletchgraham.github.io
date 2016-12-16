@@ -84,6 +84,7 @@ if ($(window).width() > 768) {
 }
         
 $(window).resize(function(){
+
     
     $( '.menuDesk' ).css({
         height: "auto",
@@ -127,12 +128,15 @@ $('.daario-naharis').draggable();
     $('.grab').each(function(){
     var grab_width = this.clientWidth;
     var grab_height = this.clientHeight;
-  var randPosX = Math.floor((((Math.random()*2)/2)*(bodyWidth - grab_width)));
-  var randPosY = Math.floor((((Math.random()+.5)/2)*(bodyHeight - grab_height)));
+  var randPosX =(((Math.random()*2)/2)*(bodyWidth - grab_width)/bodyWidth)*100;
+        var newLeft = randPosX.toString() + "%";
+  var randPosY = (((Math.random()+0.5)/2)*(bodyHeight - grab_height)/bodyHeight)*100;
+        var newTop = randPosY.toString() + "%";
   
-  $(this).css('left', randPosX);
-  $(this).css('top', randPosY);
+  $(this).css('left', newLeft);
+  $(this).css('top', newTop);
     });
+
     
 /* this creates the little x in the top of each floaty box allowing the viewer to close them */
     $( ".grab" ).append( "<div class='x'>X</div>" );
