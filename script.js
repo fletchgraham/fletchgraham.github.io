@@ -81,6 +81,7 @@ if ($(window).width() < 768) {
 if ($(window).width() > 768) {
     $('.menuDesk').show ();
     $('.menuMobile').hide ();
+    $('.collapse').hide ();
 }
         
 $(window).resize(function(){
@@ -396,7 +397,18 @@ $('.menu').mousedown(function(){
     });
     $(this).css('z-index', topZ+1);
 });
+	
+/* these show and hide the mouseover titles over the loops */
 
+$('.small-img').mouseenter(function() {
+    $(this.lastChild).show()
+});
+    
+$('.small-img').mouseleave(function() {
+    $(this.lastChild).hide()
+});
+    
+    
 });
 
 
