@@ -202,18 +202,53 @@ NOTES ON THE SHOW HIDE BUTTONS
 }
 
 .small-img {
+	width:30%;
     text-align: center;
-    width:30%;
     display:inline-block;
     position:relative;
-    margin:.3%;
     padding: 0;
 }
 
 .small-gif {
-    width:100%;
-    height:auto;
-    margin:0px;
+	display: inline-block;
+}
+
+.threeWide {
+	width:32%;
+}	
+
+.threeWideContainer {
+		display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+	justify-content: space-between;
+}
+
+#instafeed {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+	justify-content: space-between;
+}
+
+.oneWide {
+	width:100%;
+	display: inline-block;
+}
+
+.blurb {
+	background-color:#f1f1f1;
+	padding:10px;
+}
+
+.article {
+	text-align: justify;
+}
+
+.article:after {
+	width:100%;
 }
 
 .mouseoverTitle {
@@ -264,6 +299,11 @@ MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         padding-top: 100px;
         margin-left: 0px;
     }
+	
+	.threeWide {
+		width:30%;
+	}	
+    
     
 }
     
@@ -278,7 +318,7 @@ MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         width:100%;
         clear:both;
     }
-    
+
 
 
 

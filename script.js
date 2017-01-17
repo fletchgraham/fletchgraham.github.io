@@ -61,8 +61,6 @@ $.hide = function()
     {
         $('.show').show();
         $('.hide').hide ();
-        /*$('.menuDesk').animate({height:'72px'});
-        $('.menuMobile').animate({height:'72px'});*/
         $( '.menuDesk' ).css({
         height: "auto",
         });
@@ -105,7 +103,11 @@ if ($(window).width() > 768) {
     $('.menuMobile').hide ();
 }
 });
-    
+	
+$( ".blurb" ).click(function() {
+  $(this.children).toggle();
+});
+	
     $('.hide').hide();
 
     //the 'hide' click
