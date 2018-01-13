@@ -135,8 +135,8 @@ NOTES ON THE SHOW HIDE BUTTONS
     display: inline;
     background: white;
     height: auto;
-    padding:5px;
-    width:300px;
+    padding: 20px;
+    width: 300px;
 }
 
 .x {
@@ -241,10 +241,6 @@ NOTES ON THE SHOW HIDE BUTTONS
 .blurb {
 	background-color:#f1f1f1;
 	padding:10px;
-}
-
-.article {
-	text-align: justify;
 }
 
 .article:after {
