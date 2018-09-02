@@ -1,7 +1,7 @@
 /* canvas draw function. genetic material from an ancient website of mine */
 
 window.onload = function () {
-    
+
 var color = "#6900ff";
 var $canvas = $("canvas");
 //Select the first, only canvas element. Select the actual HTML element using the array syntax [index], get the 2d context.
@@ -43,7 +43,7 @@ NOTES ON THE DYNAMIC MENU
 -it is important that the show button makes the menu expand to the scroll height, so that items are not cuttoff.
 
 */
-    
+
 $(document).ready(function(){
 $.show = function()
     {
@@ -69,63 +69,62 @@ $.hide = function()
         });
         $('.collapse').hide ();
     }
-    
+
 if ($(window).width() < 768) {
     $('.menuDesk').hide ();
     $('.menuMobile').show ();
     $('.collapse').hide ();
 }
-    
+
 if ($(window).width() > 768) {
     $('.menuDesk').show ();
     $('.menuMobile').hide ();
     $('.collapse').hide ();
 }
-        
+
 $(window).resize(function(){
 
-    
     $( '.menuDesk' ).css({
         height: "auto",
     });
     $( '.menuMobile' ).css({
         height: "auto",
     });
-    
+
     if ($(window).width() < 768) {
     $('.menuDesk').hide ();
     $('.menuMobile').show ();
     $.hide();
 }
-    
+
 if ($(window).width() > 768) {
     $('.menuDesk').show ();
     $('.menuMobile').hide ();
 }
 });
-	
+
 $( ".blurb" ).click(function() {
   $(this.children).toggle();
 });
-	
+
     $('.hide').hide();
 
     //the 'hide' click
         $('.hide').click($.hide);
-    
+
     //the 'show' click
         $('.show').click($.show);
-        
 
-    
-    /* these guys actually give the drag functionality to the cards and the menu */
+
+
+/* these guys actually give the drag functionality to the cards and the menu */
 $('.grab').draggable();
 $('.menuDesk').draggable();
 $('.daario-naharis').draggable();
-    
+
 
 /* this is for making the location of the floaty boxes random */
-    
+
   var bodyWidth = window.innerWidth
   var bodyHeight = window.innerHeight;
     $('.grab').each(function(){
@@ -135,242 +134,30 @@ $('.daario-naharis').draggable();
         var newLeft = randPosX.toString() + "%";
   var randPosY = (((Math.random()+0.5)/2)*(bodyHeight - grab_height)/bodyHeight)*100;
         var newTop = randPosY.toString() + "%";
-  
+
   $(this).css('left', newLeft);
   $(this).css('top', newTop);
     });
 
-    
+
 /* this creates the little x in the top of each floaty box allowing the viewer to close them */
+
     $( ".grab" ).append( "<div class='x'>X</div>" );
     $( ".x" ).click(function() {
         $(this).parent('div').css('display','none');
     });
 
-    
+
 /* this makes the list decoration things change if the page is active */
+
     $("[href]").each(function() {
     if (this.href == window.location.href) {
         $(this).parent('li').addClass('active');
         }
     });
 
-/*
-
-these next functions are responsible for bringing the correct card to the top of the pile when its name is moused over in the menu.
-
-*/
-$( "#100-days-of-textures-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#100-days-of-textures-card').css('z-index', topZ+1);
-  }
-);
-    
-$( "#kunsthaus-bregenz-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#kunsthaus-bregenz-card').css('z-index', topZ+1);
-  }
-);
-    
-$( "#100-days-project-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#100-days-project-card').css('z-index', topZ+1);
-  }
-);
-    
-$( "#nourishment-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#nourishment-card').css('z-index', topZ+1);
-  }
-);
-    
-$( "#anatomy-sculptures-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#anatomy-sculptures-card').css('z-index', topZ+1);
-  }
-);
-    
-$( "#website-sketches-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#website-sketches-card').css('z-index', topZ+1);
-  }
-);
-    
-$( "#transitions-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#transitions-card').css('z-index', topZ+1);
-  }
-);
-    
-$( "#binaries-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#binaries-card').css('z-index', topZ+1);
-  }
-);
-    
-$( "#sketches-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#sketches-card').css('z-index', topZ+1);
-  }
-);
-      
-$( "#bike-build-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#bike-build-card').css('z-index', topZ+1);
-  }
-);
-    
-$( "#gig-posters-btn" ).mouseenter(
-  function() {
-        var topZ = 0;
-    $('.grab').each(function(){
-        var thisZ = parseInt($(this).css('z-index'), 10);
-        if (thisZ > topZ){
-            topZ = thisZ;
-        }
-    });
-    $('.menu').each(function(){
-        var menuZ = parseInt($(this).css('z-index'), 10);
-        if (menuZ > topZ){
-            topZ = menuZ;
-        }
-    });
-    $('#gig-posters-card').css('z-index', topZ+1);
-  }
-);
-
 /* this bit brings the clicked card to the front */
-    
+
 $('.grab').mousedown(function(){
     var topZ = 0;
     $('.grab').each(function(){
@@ -399,35 +186,16 @@ $('.menu').mousedown(function(){
     });
     $(this).css('z-index', topZ+1);
 });
-	
+
 /* these show and hide the mouseover titles over the loops */
 
 $('.small-img').mouseenter(function() {
     $(this.lastChild).show()
 });
-    
+
 $('.small-img').mouseleave(function() {
     $(this.lastChild).hide()
 });
-    
-    
+
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
