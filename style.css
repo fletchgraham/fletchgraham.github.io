@@ -12,7 +12,7 @@ body {
 
 .article {
     min-height: 1300px;
-    
+
 }
 
 
@@ -94,7 +94,7 @@ li {
 }
 
 
-/* 
+/*
 NOTES ON THE SHOW HIDE BUTTONS
 
 -the show hide buttons are rigged up with jquery
@@ -165,6 +165,8 @@ NOTES ON THE SHOW HIDE BUTTONS
     background: white
 }
 
+/* for non-square cards: */
+
 #kunsthaus-bregenz-card {
     width:314px;
     height:300px;
@@ -215,7 +217,7 @@ NOTES ON THE SHOW HIDE BUTTONS
 
 .threeWide {
 	width:32%;
-}	
+}
 
 .threeWideContainer {
 		display: flex;
@@ -276,65 +278,41 @@ MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 /* this is for a portrait ipad or less (landscape is 1024)*/
 @media screen and (max-width: 782px) {
-    
+
     .drawingBtn {
         display:none;
     }
-    
+
     /* the menu gets a background, stretches accross top of the screen and gains the ability to be collapsed*/
-    
+
     .menu ul {
         text-align: left;
         float:left;
         display:inline-block;
         width:300px;
     }
-    
+
     /* this makes the article snug against the left of screen. and it needs the padding so that content is not lost behind the menu */
     .article {
         padding-top: 100px;
         margin-left: 0px;
     }
-	
+
 	.threeWide {
 		width:30%;
-	}	
-    
-    
+	}
+
+
 }
-    
+
     /*  */
     .show {
         width:100%;
         clear:both;
     }
-    
+
     /* same as .show */
     .hide {
         width:100%;
         clear:both;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
