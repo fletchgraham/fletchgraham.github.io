@@ -45,6 +45,8 @@ NOTES ON THE DYNAMIC MENU
 */
 
 $(document).ready(function(){
+	
+
 $.show = function()
     {
         $('.hide').show();
@@ -115,7 +117,9 @@ $( ".blurb" ).click(function() {
     //the 'show' click
         $('.show').click($.show);
 
-
+$('.verbose').click(function() {
+    $(".article p").toggle();
+});
 
 /* these guys actually give the drag functionality to the cards and the menu */
 $('.grab').draggable();
