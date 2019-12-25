@@ -1,6 +1,6 @@
 let current;
 let snowflake = [];
-let bg = 'rgb(135, 124, 120)';
+let bg = 'rgb(126, 70, 94)';
 
 function setup() {
   var resp = '';
