@@ -22,7 +22,7 @@ function draw_name() {
   stroke(255);
   strokeWeight(2);
   push();
-  translate(20, 40);
+  translate(100, 30);
   rotate(PI/6);
   textAlign(LEFT, TOP);
   text(NAME.toUpperCase(), 0, 0);
