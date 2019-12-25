@@ -1,6 +1,6 @@
 let current;
 let snowflake = [];
-let bg = 'rgb(100, 220, 220)';
+let bg = 'rgb(100, 220, 255)';
 
 function setup() {
   var resp = '';
@@ -17,16 +17,11 @@ function setup() {
 }
 
 function draw_name() {
-  textSize((2400/(NAME.length+8))*(width/800));
+  textSize(800/NAME.length);
   fill(bg);
   stroke(255);
-  strokeWeight(2);
-  push();
-  translate(20, 40);
-  rotate(PI/6);
-  textAlign(LEFT, TOP);
-  text(NAME.toUpperCase(), 0, 0);
-  pop();
+  strokeWeight(3);
+  text(NAME.toUpperCase(), 50, width/2.5);
 }
 
 function flakify(render) {
@@ -61,7 +56,7 @@ class Particle {
     this.pos = p5.Vector.fromAngle(angle);
     this.pos.mult(radius);
     this.pos.y += random(width/PI);
-    this.r = width/400;
+    this.r = 2;
     this.count = 0;
   }
 
