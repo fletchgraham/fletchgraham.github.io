@@ -175,7 +175,14 @@
 
         <p><span class="highlight">Figure out the lighting, composition, and poses of your subject before you ever put brush to canvas.</span></p>
 
-        <a class="button" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order for <del>$350</del> $250</a>
+        <a class="button" id="preOrderLink" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order for <del>$350</del> $250</a>
+        <script type="text/javascript">
+            document.getElementById('preOrderLink').addEventListener('click', function() {
+                // Insert your Facebook Pixel event tracking code here
+                fbq('track', 'InitiateCheckout');
+                console.log("Facebook Pixel event 'InitiateCheckout' triggered");
+            }, false);
+        </script>
 
         <p><span class="highlight">Release date: January 1, 2025.</span> The first 25 people to enroll for the presale will get:</p>
         <ul>
@@ -226,12 +233,26 @@
         </ul>
         <p>Building your own reference material with 3D software <em>deepens</em> your understanding of your subject instead of dulling it.</p>
         
-        <a class="button" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order now for $250</a>
+        <a class="button" id="bottomPreOrderLink" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order now for $250</a>
+        <script type="text/javascript">
+            document.getElementById('bottomPreOrderLink').addEventListener('click', function() {
+                // Insert your Facebook Pixel event tracking code here
+                fbq('track', 'InitiateCheckout');
+                console.log("Facebook Pixel event 'InitiateCheckout' triggered");
+            }, false);
+        </script>
     </div>
 
     <footer>
         <p>Spots are filling up, pre-order now for $250</p>
-        <a class="footer-button" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order</a>
+        <a class="footer-button" id="footerPreOrderLink" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order</a>
+        <script type="text/javascript">
+            document.getElementById('footerPreOrderLink').addEventListener('click', function() {
+                // Insert your Facebook Pixel event tracking code here
+                fbq('track', 'InitiateCheckout');
+                console.log("Facebook Pixel event 'InitiateCheckout' triggered");
+            }, false);
+        </script>
     </footer>
 
 </body>
