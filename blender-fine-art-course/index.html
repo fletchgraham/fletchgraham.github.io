@@ -226,23 +226,34 @@
         </ul>
         <p>Building your own reference material with 3D software <em>deepens</em> your understanding of your subject instead of dulling it.</p>
         
-        <a class="button" id="preOrderLink" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order now for $250</a>
-        <script type="text/javascript">
-            document.getElementById('bottomPreOrderLink').addEventListener('click', function() {
-                // Insert your Facebook Pixel event tracking code here
-                fbq('track', 'InitiateCheckout');
-                console.log("Facebook Pixel event 'InitiateCheckout' triggered");
-            }, false);
-        </script>
+        <a class="button" id="bottomPreOrderLink" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order now for $250</a>
     </div>
 
     <footer>
         <p>Spots are filling up, pre-order now for $250</p>
-        <a class="footer-button" id="preOrderLink" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order</a>
+        <a class="footer-button" id="footerPreOrderLink" href="https://buy.stripe.com/dR6aFP4Zw0O62Yg001">Pre-order</a>
     </footer>
 
     <script type="text/javascript">
         document.getElementById('preOrderLink').addEventListener('click', function(event) {
+            event.preventDefault();  // Prevent the link from navigating right away
+            fbq('track', 'InitiateCheckout');  // Track the event
+            console.log("Facebook Pixel event 'InitiateCheckout' triggered");
+    
+            setTimeout(function() {
+                window.location.href = "https://buy.stripe.com/dR6aFP4Zw0O62Yg001";  // Now navigate to the link
+            }, 300);  // Adjust the delay as needed (300 milliseconds is often enough)
+        });
+        document.getElementById('bottomPreOrderLink').addEventListener('click', function(event) {
+            event.preventDefault();  // Prevent the link from navigating right away
+            fbq('track', 'InitiateCheckout');  // Track the event
+            console.log("Facebook Pixel event 'InitiateCheckout' triggered");
+    
+            setTimeout(function() {
+                window.location.href = "https://buy.stripe.com/dR6aFP4Zw0O62Yg001";  // Now navigate to the link
+            }, 300);  // Adjust the delay as needed (300 milliseconds is often enough)
+        });
+        document.getElementById('footerPreOrderLink').addEventListener('click', function(event) {
             event.preventDefault();  // Prevent the link from navigating right away
             fbq('track', 'InitiateCheckout');  // Track the event
             console.log("Facebook Pixel event 'InitiateCheckout' triggered");
