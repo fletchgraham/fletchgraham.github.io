@@ -35,11 +35,11 @@
 
     <script>
       const viewer = document.getElementById("viewer");
-      const frameCount = 20;
+      const frameCount = 36;
       const images = [];
 
       // Preload images
-      for (let i = 1; i <= frameCount; i++) {
+      for (let i = 0; i <= frameCount; i++) {
         const num = i.toString().padStart(4, "0");
         const img = new Image();
         img.src = `img/${num}.jpg`;
@@ -52,7 +52,7 @@
 
       function showFrame(index) {
         const num = ((index % frameCount) + frameCount) % frameCount;
-        viewer.style.backgroundImage = `url('img/${(num + 1)
+        viewer.style.backgroundImage = `url('img/${num
           .toString()
           .padStart(4, "0")}.jpg')`;
       }
