@@ -4,20 +4,26 @@
     <meta charset="UTF-8" />
     <title>Fridge Turntable</title>
     <style>
+      html,
       body {
         margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background: white;
+        overflow: hidden;
       }
       #viewer {
-        width: 600px;
-        height: 600px;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100%;
         background-size: contain;
         background-position: center;
+        background-repeat: no-repeat;
         cursor: grab;
         user-select: none;
+        touch-action: none; /* Prevent pinch zoom / scrolling */
       }
       #viewer:active {
         cursor: grabbing;
@@ -45,12 +51,13 @@
       let startX = 0;
 
       function showFrame(index) {
-        const num = ((index % frameCount) + frameCount) % frameCount; // wrap around
+        const num = ((index % frameCount) + frameCount) % frameCount;
         viewer.style.backgroundImage = `url('img/${(num + 1)
           .toString()
           .padStart(4, "0")}.jpg')`;
       }
 
+      // Mouse support
       viewer.addEventListener("mousedown", (e) => {
         dragging = true;
         startX = e.clientX;
@@ -67,7 +74,7 @@
       viewer.addEventListener("mousemove", (e) => {
         if (!dragging) return;
         const dx = e.clientX - startX;
-        const sensitivity = 5;
+        const sensitivity = 20;
         if (Math.abs(dx) > sensitivity) {
           currentFrame += dx > 0 ? -1 : 1;
           showFrame(currentFrame);
@@ -75,7 +82,28 @@
         }
       });
 
-      // Show initial frame
+      // Touch support
+      viewer.addEventListener("touchstart", (e) => {
+        dragging = true;
+        startX = e.touches[0].clientX;
+      });
+
+      viewer.addEventListener("touchmove", (e) => {
+        if (!dragging) return;
+        const dx = e.touches[0].clientX - startX;
+        const sensitivity = 20;
+        if (Math.abs(dx) > sensitivity) {
+          currentFrame += dx > 0 ? -1 : 1;
+          showFrame(currentFrame);
+          startX = e.touches[0].clientX;
+        }
+      });
+
+      viewer.addEventListener("touchend", () => {
+        dragging = false;
+      });
+
+      // Initial frame
       showFrame(currentFrame);
     </script>
   </body>
